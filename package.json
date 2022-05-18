@@ -1,6 +1,6 @@
 {
   "name": "zeromq",
-  "version": "6.0.0-beta.6",
+  "version": "6.0.0-beta.6-nanometrics",
   "description": "Next-generation ZeroMQ bindings for Node.js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -71,6 +71,7 @@
   ],
   "scripts": {
     "install": "node-gyp-build",
+    "install:arm64": "node-gyp rebuild --arch=arm64 --osx_arch=arm64",
     "clean": "shx rm -rf build lib libzmq tmp zmq && shx mkdir -p tmp && shx touch tmp/.gitkeep",
     "build.js": "tsc --project tsconfig-build.json && node script/ci/downlevel-dts.js",
     "build.doc": "typedoc --out docs --name zeromq.js --excludeProtected --excludePrivate --excludeNotExported --excludeExternals --externalPattern 'src/+(draft|native|compat).ts' --tsconfig tsconfig-build.json --mode file",
@@ -127,5 +128,8 @@
       "ts-node",
       "weak-napi"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://nexus.nmx.ca/repository/npm-releases/"
   }
 }

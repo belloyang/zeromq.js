@@ -58,6 +58,7 @@ else
     -DBUILD_TESTS=OFF \
     -DBUILD_SHARED=OFF \
     -DWITH_DOCS=OFF \
+    -DCMAKE_OSX_ARCHITECTURES="$2" \
     "${SRC_DIR}"
 
   if [ -n "${WINDIR}" ]; then

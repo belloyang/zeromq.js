@@ -4,6 +4,7 @@
     'zmq_draft%': 'false',
     'zmq_no_sync_resolve%': 'false',
     'sanitizers%': 'false',
+    'osx_arch%': 'x86_64'
   },
 
   'targets': [
@@ -17,7 +18,7 @@
             'action_name': 'build_libzmq',
             'inputs': ['package.json'],
             'outputs': ['libzmq/lib'],
-            'action': ['sh', '<(PRODUCT_DIR)/../../script/build.sh', '<(CONFIGURATION_NAME)'],
+            'action': ['sh', '<(PRODUCT_DIR)/../../script/build.sh', '<(CONFIGURATION_NAME)', '<(osx_arch)'],
           }],
         }],
       ],
